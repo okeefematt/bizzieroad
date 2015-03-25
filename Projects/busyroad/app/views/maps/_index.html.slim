@@ -1,0 +1,64 @@
+#st-container.st-container
+  .outer-container
+    h1 BizzieRoad.co.nz
+    .inner-container.cf
+      .map-container
+        #map-canvas
+      .filter-container-lg
+        div
+          h2 Filter
+          .filter-options
+            .filter-set style="margin-top:0;" 
+              button#load-btn.load-btn.button.is-success Reload data
+            /!
+              | <div class="filter-set"
+              | <label for="followers-select">Followers:</label
+              | <select name="followers-select" id="followers-select" class="followers-select"
+              | <option value="0">Any</option
+              | <option value="10">10+</option
+              | <option value="20">20+</option
+              | <option value="30">30+</option
+              | <option value="40">40+</option
+              | <option value="50">50+</option
+              | <option value="60">60+</option
+              | <option value="70">70+</option
+              | </select
+              | </div
+              | <div class="filter-set"
+              | <label for="college-select">College:</label
+              | <select name="college-select" id="college-select" class="college-select"
+              | <option value="0">Any</option
+              | <option value="MSU">Michigan State University</option
+              | <option value="CMU">Central Michigan University</option
+              | <option value="MTU">Michigan Tech University</option
+              | <option value="FSU">Ferris State University</option
+              | <option value="UM">University of Michigan</option
+              | </select
+              | </div
+            .filter-set
+              label for="users-select"  Users:
+              select#users-select.users-select name="users-select" 
+                option value="0"  Any
+                option value="James"  James Watling
+                option value="Shane"  Shane Richards
+            .filter-set
+              label for="isp-select"  isp:
+              select#isp-select.isp-select name="isp-select" 
+                option value="0"  Any
+                option value="vodafone"  Vodafone
+                option value="2deg"  2Deg
+            /!
+              | <div class="filter-set"
+              | <label for="from-select">From:</label
+              | <select name="from-select" id="from-select" class="from-select"
+              | <option value="0">Any</option
+              | <option value="National">National</option
+              | <option value="Michigan">Michigan</option
+              | </select
+              | </div
+          /! .filter-options
+      /! .filter-container-lg
+      #status
+    /! .inner-container
+  /! .outer-container
+/! #st-container

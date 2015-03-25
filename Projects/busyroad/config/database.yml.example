@@ -1,0 +1,14 @@
+defaults_development: &defaults_development
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  database: application_dev
+  <<: *defaults_development
+
+test:
+  database: application_test
+  <<: *defaults_development
