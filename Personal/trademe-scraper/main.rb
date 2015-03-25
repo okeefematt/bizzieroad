@@ -14,11 +14,15 @@ class Main
   CSS_SELECTOR = "#fullCat"
   DEFAULT_SORT = "?sort_order=buynow_asc"
 
-  def initialize(input)
-    self.keyword = input
-    self.categories = get_categories
-    get_closest_match
-    get_category_link
+  def initialize(input, link=false)
+    if link
+      self.category_url = input
+    else
+      self.keyword = input
+      self.categories = get_categories
+      get_closest_match
+      get_category_link
+    end
   end
 
   def get_categories
@@ -46,5 +50,5 @@ class Main
 
 end
 
-main = Main.new(ARGV[0])
+main = Main.new(ARGV[0], ARGV[1])
 Page.new(main.category_url)

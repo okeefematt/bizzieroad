@@ -15,21 +15,18 @@ class Page
 	def initialize(url)
     self.category_url = url
     self.category_pages = []
-    self.category_pages << url
+    self.category_pages << url.dup
     self.links = []
     get_pages(url)
     get_page_category_pages
+    puts "\nGathered #{links.count} links"
   end
 
   def get_page_category_pages
     category_pages.each_with_index do |page,index|
-      debugger
       html = Nokogiri(open(page, 'User-Agent' => USER_AGENT))
-      if html.css(".ListViewList").nil? 
-        list_view_list(html, index+1)
-      else
-        supergrid_overlord(html, index+1)
-      end
+      supergrid_overlord(html, index+1)
+      list_view_list(html, index+1)
     end
     links.reject! { |link| !link.include? "/" }
   end
@@ -46,7 +43,11 @@ class Page
   end
 
   def list_view_list(html_node, index)
-    debugger
+    listings = html_node.css('.listingCard')
+    print "\rProcessing links on page ##{index}"
+    listings.each do |listing|
+      links<< listings.first.css('a').first.values[1]
+    end
   end
 
   def supergrid_overlord(html_node, index)
